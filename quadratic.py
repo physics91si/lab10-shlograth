@@ -15,11 +15,18 @@ def main():
 
 
 def find_roots(a,b,c):
-    mid = b^2 - 4*a*c
-    sqrt_mid = mid^(1/2)
-    x1 = (-b + sqrt_mid)/2*a
-    x2 = (-b - sqrt_mid)/2*a
-    return x1, x2
+    try:
+        mid = (b**2) - (4*a*c)
+        assert [mid > 0], "We don't delve into the realm of the imaginary in these parts" 
+        sqrt_mid = mid**(1./2)
+        x1 = (-b + sqrt_mid)/(2*a)
+        x2 = (-b - sqrt_mid)/(2*a)
+        return x1, x2
+    except ZeroDivisionError:
+        print("You know what you did")
+    except TypeError:
+        print("You didn't input a number")
+
 
 
 if __name__=="__main__":
